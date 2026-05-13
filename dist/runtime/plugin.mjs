@@ -128,7 +128,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       cache,
       ...NuxtApollo.clientAwareness && { name: key },
       ...process.server ? { ssrMode: true } : { ssrForceFetchDelay: 100 },
-      connectToDevTools: clientConfig.connectToDevTools || false,
+      devtools: { enabled: clientConfig.connectToDevTools || false },
       defaultOptions: clientConfig?.defaultOptions
     });
     if (!clients?.default && !NuxtApollo?.clients?.default && key === Object.keys(NuxtApollo.clients)[0]) {
